@@ -1,5 +1,5 @@
 {
-  "name": "Telegram-JavaScript-Bot",
+  "name": "telegram-javascript-bot",
   "version": "1.0.0",
   "description": "A template for Telegram bot in JavaScript using grammY",
   "main": "index.js",
