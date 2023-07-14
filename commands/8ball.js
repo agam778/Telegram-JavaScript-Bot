@@ -32,11 +32,12 @@ module.exports = {
     const { message } = ctx;
     const { text } = message;
 
-    if (text === "/help" || text === `/help@${ctx.me.username}`) {
-      const response = responses[Math.floor(Math.random() * responses.length)];
-      await ctx.reply(response);
-    } else {
+    if (!text.substring(text.indexOf(" ") + 1)) {
       await ctx.reply("You need to ask a question!");
+      return;
     }
+
+    const response = responses[Math.floor(Math.random() * responses.length)];
+    await ctx.reply(response);
   },
 };
