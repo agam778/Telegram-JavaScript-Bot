@@ -18,7 +18,6 @@ This repository is a template for creating a Telegram bot in JavaScript. It uses
 
 #### Fun
 - `/8ball` - Ask the magic 8-ball a question
-- `/meme` - Fetch a random meme from Reddit
 
 # Environment Variables
 - `BOT_TOKEN` - Telegram bot token, get it from [@BotFather](https://t.me/BotFather)
