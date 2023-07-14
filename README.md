@@ -24,6 +24,11 @@ This repository is a template for creating a Telegram bot in JavaScript. It uses
 - `BOT_TOKEN` - Telegram bot token, get it from [@BotFather](https://t.me/BotFather)
 
 # Deploying
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/5lRkWa?referralCode=agam778)
+
+OR 
+
 - Clone this repository
 - Install dependencies: `yarn`
 - Start the bot: `yarn start`
