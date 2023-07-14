@@ -23,7 +23,7 @@ const responses = [
 
 module.exports = {
   name: "8ball",
-  description: "Ask the magic 8-ball a question",
+  description: "Ask the magic 8ball a question",
   alias: ["eightball"],
   usage: "/8ball <question>",
   example: "/8ball Is this bot awesome?",
