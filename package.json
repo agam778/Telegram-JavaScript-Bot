@@ -7,6 +7,9 @@
   "author": "Agampreet Singh <68941022+agam778@users.noreply.github.com>",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "@roziscoding/grammy-autoquote": "^1.1.2",
     "dotenv": "^16.3.1",
