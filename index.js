@@ -40,10 +40,6 @@ async function start() {
     }
   }
 
-  bot.command("start", (ctx) =>
-    ctx.reply("Hello!\n\n" + "Run the /help command to see what I can do!")
-  );
-
   bot.catch((err) => {
     const ctx = err.ctx;
     console.error(`Error while handling update ${ctx.update.update_id}:`);
