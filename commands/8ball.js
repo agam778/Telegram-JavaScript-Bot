@@ -17,8 +17,10 @@ const responses = [
   "Better not tell you now.",
   "Chances are low.",
   "Unlikely.",
-  "No way LMAO.",
+  "No way, lol.",
   "I highly doubt it.",
+  "Maybe....Maybe not?",
+  "Ask again later.",
 ];
 
 export default {
