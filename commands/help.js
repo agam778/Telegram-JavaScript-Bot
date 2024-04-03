@@ -75,7 +75,8 @@ export default {
         let output = `*Command:* /${commandDetail.default.name}\n`;
         output += `*Description:* ${commandDetail.default.description}\n`;
         output += `*Usage:* \`${commandDetail.default.usage}\`\n`;
-        output += `*Example:* \`${commandDetail.default.example}\`\n`;
+        output += `*Example:* \`${commandDetail.default.example}\`\n\n`;
+        output += "Run /help to see all the commands";
 
         await ctx.reply(output, { parse_mode: "MarkdownV2" });
       } else {
