@@ -14,7 +14,7 @@ if (!botToken) {
 
 async function start() {
   const bot = new Bot(botToken);
-  bot.use(autoQuote);
+  bot.use(autoQuote());
 
   const commandFilesDir = path.resolve(__dirname, "commands");
   const commandFiles = fs
