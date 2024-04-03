@@ -1,6 +1,10 @@
-const fs = require("fs");
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
-module.exports = {
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+export default {
   name: "help",
   description: "Show a list of commands",
   usage: "/help OR /help <command>",
@@ -16,12 +20,12 @@ module.exports = {
         .filter((file) => file.endsWith(".js"));
       const commands = [];
       for (const file of commandFiles) {
-        const command = require(`./${file}`);
+        const command = await import(`./${file}`);
         commands.push({
-          name: command.name,
-          description: command.description,
-          alias: command.alias,
-          category: command.category,
+          name: command.default.name,
+          description: command.default.description,
+          alias: command.default.alias,
+          category: command.default.category,
         });
       }
 
@@ -55,18 +59,23 @@ module.exports = {
         .readdirSync(__dirname)
         .filter((file) => file.endsWith(".js"));
 
-      const commands = commandFiles.map((file) => require(`./${file}`));
+      const commands = [];
+      for (const file of commandFiles) {
+        const command = await import(`./${file}`);
+        commands.push(command);
+      }
 
       const commandDetail = commands.find(
         (cmd) =>
-          cmd.name === command || (cmd.alias && cmd.alias.includes(command))
+          cmd.default.name === command ||
+          (cmd.default.alias && cmd.default.alias.includes(command))
       );
 
       if (commandDetail) {
-        let output = `*Command:* /${commandDetail.name}\n`;
-        output += `*Description:* ${commandDetail.description}\n`;
-        output += `*Usage:* \`${commandDetail.usage}\`\n`;
-        output += `*Example:* \`${commandDetail.example}\`\n`;
+        let output = `*Command:* /${commandDetail.default.name}\n`;
+        output += `*Description:* ${commandDetail.default.description}\n`;
+        output += `*Usage:* \`${commandDetail.default.usage}\`\n`;
+        output += `*Example:* \`${commandDetail.default.example}\`\n`;
 
         await ctx.reply(output, { parse_mode: "MarkdownV2" });
       } else {

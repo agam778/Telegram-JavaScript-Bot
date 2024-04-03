@@ -1,6 +1,7 @@
 {
   "name": "telegram-javascript-bot",
   "version": "1.0.0",
+  "type": "module",
   "description": "A template for Telegram bot in JavaScript using grammY",
   "main": "index.js",
   "repository": "https://github.com/agam778/Telegram-JavaScript-Bot.git",

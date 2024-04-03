@@ -1,10 +1,14 @@
-const { Bot, GrammyError, HttpError } = require("grammy");
-const { autoQuote } = require("@roziscoding/grammy-autoquote");
-const fs = require("fs");
-const path = require("path");
+import { Bot, GrammyError, HttpError } from "grammy";
+import { autoQuote } from "@roziscoding/grammy-autoquote";
+import { fileURLToPath } from "url";
+import { config } from "dotenv";
+import fs from "fs";
+import path from "node:path";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 if (fs.existsSync(".env")) {
-  require("dotenv").config();
+  config();
 }
 
 const botToken = process.env.BOT_TOKEN;
@@ -22,15 +26,15 @@ async function start() {
     .filter((file) => file.endsWith(".js"));
 
   for (const file of commandFiles) {
-    const command = require(path.join(commandFilesDir, file));
-    bot.command(command.name, async (ctx) => {
-      await command.handler(ctx);
+    const command = await import(path.join(commandFilesDir, file));
+    bot.command(command.default.name, async (ctx) => {
+      await command.default.handler(ctx);
     });
 
-    if (command.alias) {
-      for (const alias of command.alias) {
+    if (command.default.alias) {
+      for (const alias of command.default.alias) {
         bot.command(alias, async (ctx) => {
-          await command.handler(ctx);
+          await command.default.handler(ctx);
         });
       }
     }

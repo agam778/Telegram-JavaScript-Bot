@@ -21,7 +21,7 @@ const responses = [
   "I highly doubt it.",
 ];
 
-module.exports = {
+export default {
   name: "8ball",
   description: "Ask the magic 8ball a question",
   alias: ["eightball"],
