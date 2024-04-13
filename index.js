@@ -27,14 +27,10 @@ async function start() {
 
   for (const file of commandFiles) {
     const command = await import(path.join(commandFilesDir, file));
-    console.log(`Registering command ${command.default.name}...`);
     bot.command(command.default.name, command.default.handler);
 
     if (command.default.alias) {
       for (const alias of command.default.alias) {
-        console.log(
-          `Registering alias ${alias} for command ${command.default.name}...`
-        );
         bot.command(alias, command.default.handler);
       }
     }
