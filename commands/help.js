@@ -14,7 +14,7 @@ export default {
     const { message } = ctx;
     const { text } = message;
 
-    if (text === "/help" || text === `/help@${ctx.me.username}`) {
+    if (text.split(" ").length < 2) {
       const commandFiles = fs
         .readdirSync(__dirname)
         .filter((file) => file.endsWith(".js"));
@@ -53,7 +53,7 @@ export default {
       }
 
       await ctx.reply(output, { parse_mode: "HTML" });
-    } else if (text.substring(text.indexOf(" ") + 1)) {
+    } else {
       const command = text.substring(text.indexOf(" ") + 1);
       const commandFiles = fs
         .readdirSync(__dirname)

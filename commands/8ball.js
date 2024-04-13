@@ -34,7 +34,7 @@ export default {
     const { message } = ctx;
     const { text } = message;
 
-    if (!text.substring(text.indexOf(" ") + 1)) {
+    if (text.split(" ").length < 2) {
       await ctx.reply("You need to ask a question!");
       return;
     }
