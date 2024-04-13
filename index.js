@@ -27,15 +27,11 @@ async function start() {
 
   for (const file of commandFiles) {
     const command = await import(path.join(commandFilesDir, file));
-    bot.command(command.default.name, async (ctx) => {
-      await command.default.handler(ctx);
-    });
+    bot.command(command.default.name, command.default.handler);
 
     if (command.default.alias) {
       for (const alias of command.default.alias) {
-        bot.command(alias, async (ctx) => {
-          await command.default.handler(ctx);
-        });
+        bot.command(alias, command.default.handler);
       }
     }
   }
