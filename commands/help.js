@@ -54,7 +54,7 @@ export default {
 
       await ctx.reply(output, { parse_mode: "HTML" });
     } else {
-      const command = text.substring(text.indexOf(" ") + 1);
+      const command = text.split(" ")[1];
       const commandFiles = fs
         .readdirSync(__dirname)
         .filter((file) => file.endsWith(".js"));
