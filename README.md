@@ -27,6 +27,8 @@ This repository is a template for creating a Telegram bot in JavaScript. It uses
 
 - `BOT_TOKEN` - Telegram bot token, get it from [@BotFather](https://t.me/BotFather)
 
+> Please update the `.env.example` file with your BOT_TOKEN and then rename the file by removing the `.example` extension.
+
 # Deploying
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/5lRkWa?referralCode=agam778)
