@@ -17,5 +17,5 @@
     "grammy": "^1.17.2",
     "path": "^0.12.7"
   },
-  "packageManager": "yarn@4.1.1"
+  "packageManager": "yarn@4.5.1"
 }
